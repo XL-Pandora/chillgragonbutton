@@ -53,14 +53,17 @@
 
 <!-- 右侧边栏：歌切搜索跳转 -->
 <div id="side-panel">
-  <h3>🎵 龙歌</h3>
-  <div style="display: flex; gap: 5px;">
-    <input type="text" id="song-search" placeholder="搜索歌曲..." style="flex: 1;" />
-    <select id="tag-filter">
-      <option value="全部">全部</option>
-    </select>
+  <div id="panel-header">
+    <h3>🎵 龙歌</h3>
+    <div class="search-group">
+      <input type="text" id="song-search" placeholder="搜索歌曲..." style="flex:1;">
+      <select id="tag-filter"></select>
+    </div>
   </div>
-  <ul id="song-list"></ul>
+
+  <div id="panel-scroll">
+    <ul id="song-list"></ul>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/pinyin-pro/dist/pinyin-pro.min.js"></script>

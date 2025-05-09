@@ -110,22 +110,23 @@ body {
 }
 
 /* -----------------------------------右边歌单-----------------------------------*/
+/* 固定右侧容器 */
 #side-panel {
-  position: fixed;                /* ✅ 保持固定右侧 */
+  position: fixed;
   top: 0;
-  right: 0;
+  right: 8;
   width: 13vw;
   height: 100vh;
-  padding: 20px 10px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   font-size: 14px;
   color: #000;
   z-index: 9998;
-
-  background-color: rgba(255, 255, 255, 0.9);  /* 可调半透明 */
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05); /* 柔和左阴影 */
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.05);
 }
 
+/* 背景图淡化叠层 */
 #side-panel::before {
   content: "";
   position: absolute;
@@ -134,33 +135,48 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
-  opacity: 0.25;              /* ✅ 控制图片透明度 */
+  opacity: 0.25;
   pointer-events: none;
   z-index: -1;
 }
 
-#side-panel h3 {
-  margin-top: 0;
-  font-size: 16px;
-  color: #333;
+/* 标题栏和搜索框区域（固定） */
+#panel-header {
+  flex-shrink: 0;
+  padding: 10px;
 }
 
-#side-panel ul {
+/* 歌曲列表滚动区域 */
+#panel-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+/* 歌曲列表内容样式 */
+#song-list {
   list-style: none;
   padding-left: 0;
-  margin-top: 10px;
+  margin: 0;
+  padding-bottom: 10px; /* 保留底部空间，防止遮挡 */
 }
 
-#side-panel li {
+#song-list li {
   margin-bottom: 10px;
 }
 
-#side-panel a {
+#song-list a {
   text-decoration: none;
   color: #a30000;
 }
 
-#side-panel a:hover {
+#song-list a:hover {
   text-decoration: underline;
   color: #e60000;
+}
+
+/* 可选：搜索栏横向对齐 */
+.search-group {
+  display: flex;
+  gap: 5px;
 }

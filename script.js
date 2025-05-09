@@ -58,27 +58,67 @@ async function loadSongs() {
 }
 
 function populateTagOptions() {
-  const allTags = new Set();
-  allSongs.forEach(song => song.tags?.forEach(tag => allTags.add(tag)));
-
   const tagSelect = document.getElementById('tag-filter');
-  allTags.forEach(tag => {
+  const allTags = new Set();
+
+  allSongs.forEach(song => {
+    if (Array.isArray(song.tags)) {
+      song.tags.forEach(tag => allTags.add(tag));
+    }
+  });
+
+  const previousValue = tagSelect.value || "全部";
+
+  tagSelect.innerHTML = '';
+  const allOption = document.createElement('option');
+  allOption.value = '全部';
+  allOption.textContent = '全部';
+  tagSelect.appendChild(allOption);
+
+  [...allTags].sort().forEach(tag => {
     const option = document.createElement('option');
     option.value = tag;
     option.textContent = tag;
     tagSelect.appendChild(option);
   });
+
+  // 恢复上一次选择的值
+  tagSelect.value = previousValue;
+  activeTag = tagSelect.value; // 强制同步
+
+  renderSongList(); // 触发更新
+}
+
+function getVisualLength(str) {
+  let len = 0;
+  for (const ch of str) {
+    len += ch.charCodeAt(0) > 255 ? 2 : 1;
+  }
+  return len;
 }
 
 function renderSongList() {
   const ul = document.getElementById('song-list');
   ul.innerHTML = '';
 
+  const keyword = activeKeyword.toLowerCase();
+
   const filtered = allSongs.filter(song => {
-    const matchesKeyword = song.title.toLowerCase().includes(activeKeyword.toLowerCase());
-    const matchesTag = activeTag === "全部" || (song.tags && song.tags.includes(activeTag));
-    return matchesKeyword && matchesTag;
+    const titleMatch = song.title.toLowerCase().includes(keyword);
+    const tags = song.tags || [];
+
+    if (activeTag === "没唱过") {
+      // 只显示包含“没唱过”的歌曲
+      return tags.includes("没唱过") && titleMatch;
+    } else {
+      // 显示匹配标签但排除“没唱过”的歌曲
+      const tagMatch = (activeTag === "全部" || tags.includes(activeTag)) && !tags.includes("没唱过");
+      return titleMatch && tagMatch;
+    }
   });
+
+  // 按视觉长度排序（短 → 长）
+  filtered.sort((a, b) => getVisualLength(a.title) - getVisualLength(b.title));
 
   for (const song of filtered) {
     const li = document.createElement('li');
