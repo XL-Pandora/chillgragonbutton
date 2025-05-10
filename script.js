@@ -122,9 +122,16 @@ function renderSongList() {
 
   for (const song of filtered) {
     const li = document.createElement('li');
-    li.innerHTML = `<a href="${song.src}" target="_blank">${song.title}</a>`;
+    const searchUrl = buildBilibiliSearchURL(song.title);
+    li.innerHTML = `<a href="${searchUrl}" target="_blank">${song.title}</a>`;
     ul.appendChild(li);
   }
+}
+
+//构筑搜索链接
+function buildBilibiliSearchURL(songTitle) {
+  const base = "https://search.bilibili.com/all?keyword=";
+  return base + "伊索尔Sol+" + encodeURIComponent(songTitle);
 }
 
 // 搜索监听
