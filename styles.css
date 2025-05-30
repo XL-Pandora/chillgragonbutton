@@ -5,6 +5,71 @@ body {
   background-color: #f9f9f9;
   padding-right: 10vw; /* 预留右侧空间 */
 }
+/*-----------------------------------加载动画样式-----------------------------------*/
+/* 全屏遮罩层 */
+#splash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff; /* 纯白背景遮挡其他内容 */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 图片容器初始状态（放大） */
+#splash-image-container {
+  width: 100%;
+  max-width: 800px; /* 放大后的最大宽度 */
+  text-align: center;
+  animation: shrink 0.5s ease-out 3s forwards; /* 3秒后执行缩小动画 */
+}
+
+/* 初始放大图片 */
+#splash-image {
+  width: 100%;
+  transform: scale(1.2);
+  transform-origin: center center; /* 关键修改：从图片中心放大 */
+  margin: 0 auto; /* 确保水平居中 */
+  display: block; /* 消除图片底部间隙 */
+}
+
+/* 进度条容器 */
+#splash-progress-container {
+  width: 70%;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* 进度条动画 */
+#splash-progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #a30000, #e60000);
+  border-radius: 3px;
+  animation: progress 3s linear forwards;
+}
+
+/* 关键帧动画 */
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes shrink {
+  to {
+    width: 50%; /* 最终宽度与页面标题一致 */
+  }
+}
+
+/* -----------------------------------标题样式----------------------------------- */
 /*标题图片样式*/
 #page-header {
   text-align: center;
@@ -106,52 +171,6 @@ body {
   z-index: 10;
   user-select: none;
 }
-/* -----------------------------------悬浮统计面板----------------------------------- */
-#stats-panel {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 220px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-  padding: 10px 10px 0 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 柔光悬浮感 */
-  z-index: 9999;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 面板顶部标题 */
-#stats-header {
-  margin-bottom: 5px;
-}
-
-/* 统计列表 */
-#stats-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  flex: 1;
-  overflow-y: auto;
-}
-
-/* 展开/收起按钮 */
-#toggle-button {
-  width: 100%;
-  border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* 柔边线 */
-  padding: 6px 0;
-  background: #f0f0f0;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 0 0 8px 8px;
-  transition: background-color 0.2s;
-}
-
-#toggle-button:hover {
-  background-color: #e5e5e5;
-}
 
 /* -----------------------------------右边歌单-----------------------------------*/
 /* 固定右侧容器 */
@@ -223,4 +242,24 @@ body {
 .search-group {
   display: flex;
   gap: 5px;
+}
+
+/*-----------------------------------左下角固定GIF-----------------------------------*/
+#corner-gif {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1000; /* 确保在最上层 */
+  opacity: 0.8; /* 可选透明度 */
+  transition: opacity 0.3s;
+}
+
+#corner-gif:hover {
+  opacity: 1; /* 悬停时完全显示 */
+}
+
+#corner-gif img {
+  width: 120px; /* 根据实际尺寸调整 */
+  height: auto;
+  pointer-events: none; /* 防止遮挡点击 */
 }

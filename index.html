@@ -7,6 +7,17 @@
   <title>龙按钮</title>
 </head>
 <body>
+
+  <!-- 全屏加载动画 -->
+<div id="splash-overlay">
+  <div id="splash-image-container">
+    <img src="image/title.png" alt="加载中" id="splash-image">
+    <div id="splash-progress-container">
+      <div id="splash-progress-bar"></div>
+    </div>
+  </div>
+</div>
+<!-- 头图 -->
   <div id="page-header">
   <img src="image/title.png" alt="页面标题" />
 </div>
@@ -14,46 +25,46 @@
  <!-- <button onclick="playAudio(''); recordClick('')"></button> -->
   <div class="category">
     <h2>龙啸</h2>
-    <button onclick="playAudio('audio/唐笑.mp3'); recordClick('唐笑')">唐笑</button>
-    <button onclick="playAudio('audio/邪恶龙笑.mp3'); recordClick('邪恶龙笑')">邪恶龙笑</button>
-    <button onclick="playAudio('audio/绷不住了的笑声.mp3'); recordClick('绷不住了的笑声')">绷不住了的笑声</button>
-    <button onclick="playAudio('audio/笑出鹅叫.mp3'); recordClick('笑出鹅叫')">笑出鹅叫</button>
+    <button onclick="playAudio('audio/唐笑.mp3')">唐笑</button>
+    <button onclick="playAudio('audio/邪恶龙笑.mp3')">邪恶龙笑</button>
+    <button onclick="playAudio('audio/绷不住了的笑声.mp3')">绷不住了的笑声</button>
+    <button onclick="playAudio('audio/笑出鹅叫.mp3')">笑出鹅叫</button>
   </div>
 
   <div class="category">
     <h2>龙鸣</h2>
-    <button onclick="playAudio('audio/55555.mp3'); recordClick('55555')">55555</button>
-    <button onclick="playAudio('audio/moemoeq.mp3'); recordClick('moemoeq')">moemoeq</button>
-    <button onclick="playAudio('audio/开心龙叫.mp3'); recordClick('开心龙叫')">开心龙叫</button>
-    <button onclick="playAudio('audio/开心龙嗷呜.mp3'); recordClick('开心龙嗷呜')">开心龙嗷呜</button>
-    <button onclick="playAudio('audio/唱歌吧.mp3'); recordClick('唱歌吧')">唱歌吧</button>
-    <button onclick="playAudio('audio/你再骂.mp3'); recordClick('你再骂')">你再骂</button>
-    <button onclick="playAudio('audio/看看南半球.mp3'); recordClick('看看南半球')">看看南半球</button>
-    <button onclick="playAudio('audio/果咩纳塞.mp3'); recordClick('果咩纳塞')">果咩纳塞</button>
-    <button onclick="playAudio('audio/那我问你.mp3'); recordClick('那我问你')">那我问你</button>
-    <button onclick="playAudio('audio/耐造.mp3'); recordClick('耐造')">耐造</button>
-    <button onclick="playAudio('audio/主龙比较皮实.mp3'); recordClick('主龙比较皮实')">主龙比较皮实</button> 
-    <button onclick="playAudio('audio/你好过分.mp3'); recordClick('你好过分')">你好过分</button>
-    <button onclick="playAudio(''); recordClick('')"></button>
+    <button onclick="playAudio('audio/55555.mp3')">55555</button>
+    <button onclick="playAudio('audio/moemoeq.mp3')">moemoeq</button>
+    <button onclick="playAudio('audio/开心龙叫.mp3')">开心龙叫</button>
+    <button onclick="playAudio('audio/开心龙嗷呜.mp3')">开心龙嗷呜</button>
+    <button onclick="playAudio('audio/唱歌吧.mp3')">唱歌吧</button>
+    <button onclick="playAudio('audio/你再骂.mp3')">你再骂</button>
+    <button onclick="playAudio('audio/看看南半球.mp3')">看看南半球</button>
+    <button onclick="playAudio('audio/果咩纳塞.mp3')">果咩纳塞</button>
+    <button onclick="playAudio('audio/那我问你.mp3')">那我问你</button>
+    <button onclick="playAudio('audio/耐造.mp3')">耐造</button>
+    <button onclick="playAudio('audio/主龙比较皮实.mp3')">主龙比较皮实</button> 
+    <button onclick="playAudio('audio/你好过分.mp3')">你好过分</button>
+    <button onclick="playAudio('')"></button>
   </div>
 
   <div class="category">
     <h2>龙言龙语</h2>
-    <button onclick="playAudio('audio/主龙你的鼻子为什么只有一个点.mp3'); recordClick('主龙你的鼻子为什么只有一个点')">主龙你的鼻子为什么只有一个点</button>
-    <button onclick="playAudio('audio/主龙就想炒粉怎么办.mp3'); recordClick('主龙就想炒粉怎么办')">主龙就想炒粉怎么办</button>
-    <button onclick="playAudio('audio/我今天没吃药感觉自己萌萌哒.mp3'); recordClick('我今天没吃药感觉自己萌萌哒')">我今天没吃药感觉自己萌萌哒</button>
-    <button onclick="playAudio('audio/让你说话你龙吗.mp3'); recordClick('让你说话你龙吗')">让你说话你龙吗</button>
-    <button onclick="playAudio('audio/对不起对不起.mp3'); recordClick('对不起对不起')">对不起对不起</button>
-    <button onclick="playAudio('audio/怎么了怎么了.mp3'); recordClick('怎么了怎么了')">怎么了怎么了</button>
-    <button onclick="playAudio('audio/主龙在睡觉.mp3'); recordClick('主龙在睡觉')">主龙在睡觉</button>
-    <button onclick="playAudio('audio/发癫.mp3'); recordClick('发癫')">发癫</button>
-    <button onclick="playAudio('audio/老公.mp3'); recordClick('老公')">老公</button>
+    <button onclick="playAudio('audio/主龙你的鼻子为什么只有一个点.mp3')">主龙你的鼻子为什么只有一个点</button>
+    <button onclick="playAudio('audio/主龙就想炒粉怎么办.mp3')">主龙就想炒粉怎么办</button>
+    <button onclick="playAudio('audio/我今天没吃药感觉自己萌萌哒.mp3')">我今天没吃药感觉自己萌萌哒</button>
+    <button onclick="playAudio('audio/让你说话你龙吗.mp3')">让你说话你龙吗</button>
+    <button onclick="playAudio('audio/对不起对不起.mp3')">对不起对不起</button>
+    <button onclick="playAudio('audio/怎么了怎么了.mp3')">怎么了怎么了</button>
+    <button onclick="playAudio('audio/主龙在睡觉.mp3')">主龙在睡觉</button>
+    <button onclick="playAudio('audio/发癫.mp3')">发癫</button>
+    <button onclick="playAudio('audio/老公.mp3')">老公</button>
     <button onclick="playAudio(''); recordClick('')"></button>
     
   </div>
 
   <div class="category">
-    <h2>寒霜吐息</h2>
+    <h2>龙窟数学</h2>
     <button onclick="playAudio('audio/rain.mp3'); recordClick('龙鸣I')">龙鸣I</button>
     <button onclick="playAudio('audio/wind.mp3'); recordClick('龙鸣II')">龙鸣II</button>
   </div>
@@ -71,17 +82,13 @@
   <button id="secret-button" onclick="playAudio('audio/彩虹糖片段.mp3')"></button>
 </div>
 
+<!-- 左下角GIF -->
+<div id="corner-gif">
+  <img src="image/decoration/x.gif" alt="装饰动图">
+</div>
+
 <!-- 版本信息、说明 -->
 <div id="footer-note">开发版本v0.00000001</div>
-
-<!-- 左悬浮窗：按钮点击次数统计 -->
-  <div id="stats-panel">
-    <div id="stats-header">
-    <strong>点击统计</strong>
-  </div>
-  <ul id="stats-list"></ul>
-  <button id="toggle-button" onclick="toggleStats()">▼ ▼ 展开 ▼ ▼</button>
-</div>
 
 <!-- 右侧边栏：歌切搜索跳转 -->
 <div id="side-panel">
