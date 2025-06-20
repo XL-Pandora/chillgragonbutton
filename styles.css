@@ -87,6 +87,38 @@ body {
   box-shadow: none;
 }
 
+/* 文本框样式 */
+.text-box {
+  width: 40%;
+  margin: 0 auto 30px;
+  padding: 15px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 20px;
+  /* 文字颜色设置 */
+  color: #a30000; /* 默认深灰色 */
+  /* 文字底影效果 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 淡淡阴影 */
+  /* 可选：增加过渡效果 */
+  transition: all 0.3s ease;
+  font-weight: bold;
+  position: relative; /* 定位基准 */
+}
+
+/* 装饰图片样式 */
+.decor-bottom-left {
+  position: absolute;
+  width: 60px; /* 按需调整 */
+  height: auto;
+  left: 10px;
+  bottom: 10px;
+  opacity: 0.7;
+  z-index: 1; /* 确保在背景上方 */
+  pointer-events: none; /* 防止干扰点击 */
+}
+
 /* 分类标题样式 */
 .category h2 {
   margin-top: 0;
@@ -127,6 +159,7 @@ body {
   transform: scale(0.96);
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 /* -----------------------------------底板样式----------------------------------- */
 #footer-image {
   width: 100%;
@@ -148,10 +181,20 @@ body {
   bottom: 0;
   left: 8px;
   font-size: 12px;
-  color: #888;              /* 淡灰色 */
+  color: #888;
   z-index: 10000;
-  pointer-events: none;     /* 不挡图，不抢鼠标事件 */
+  pointer-events: none;
   user-select: none;
+}
+
+#footer-note a {
+  pointer-events: auto; /* 允许点击链接 */
+  color: inherit; /* 继承父元素颜色 */
+  text-decoration: none;
+}
+
+#footer-note a:hover {
+  text-decoration: underline;
 }
 
 #secret-button {
