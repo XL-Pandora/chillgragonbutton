@@ -118,6 +118,15 @@ body {
   z-index: 1; /* 确保在背景上方 */
   pointer-events: none; /* 防止干扰点击 */
 }
+.decor-top-right {
+  position: absolute;
+  width: 40px; /* 按需调整 */
+  height: auto;
+  right: 20px;
+  opacity: 0.7;
+  z-index: 1; /* 确保在背景上方 */
+  pointer-events: none; /* 防止干扰点击 */
+}
 
 /* 分类标题样式 */
 .category h2 {
